@@ -14,7 +14,7 @@ function Navbar() {
   const path = usePathname()
 
   return (
-    <div className='flex justify-between items-baseline w-full max-w-7xl px-4 py-6 mx-auto bg-slate-100'>
+    <div className='flex justify-between items-baseline w-full max-w-7xl px-4 py-6 mx-auto bg-sky-100'>
         <h1 className={`${lusitana.className} text-2xl text-cyan-900`}>PELAYAN <span className='text-cyan-400'>QURAN</span></h1>
         <div className='flex items-center h-6 gap-4'>
             <Link href={'/'} className={`${path === '/' ? 'text-cyan-400' : 'text-gray-700'}` + ' px-4 py-2 border-2 border-transparent hover:text-cyan-400 font-bold'}>Beranda</Link>
