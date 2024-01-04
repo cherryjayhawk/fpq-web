@@ -1,0 +1,27 @@
+  
+  .svg{
+    display: block;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    animation-name: move-left;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  
+  @keyframes example {
+    0%   {
+      left:0px;
+      top:0px;}
+    
+    50%  {
+      left:-2000px;
+      top:100px;}
+    
+    100% {
+      left:0px; 
+      top:0px;}
+  }
