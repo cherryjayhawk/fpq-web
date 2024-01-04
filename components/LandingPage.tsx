@@ -4,8 +4,8 @@ import Waves from "./Waves"
 
 function LandingPage() {
   return (
-    <div className="h-screen">
-        <div className="flex flex-col-reverse flex-wrap-reverse md:flex-nowrap md:flex-row justify-between items-center w-full max-w-7xl px-4 py-6 mx-auto gap-8">
+    <div className="w-full ">
+        <div className="flex flex-col-reverse flex-wrap-reverse md:flex-nowrap md:flex-row justify-between items-center max-w-7xl px-4 py-6 mx-auto h-full gap-8">
             <div className="flex flex-col p-4 z-20 w-full max-w-sm md:max-w-2xl md:w-1/2 md:pr-16 ">
                 <h1 className="text-4xl text-center font-bold text-cyan-600 outline-8 outline-white md:text-cyan-600 md:text-left lg:text-6xl">Wakaf Quran <br /> <span className="my-2" /> dan Menyantuni <br /> <span className="my-2" /> Guru Ngaji</h1>
                 <br />
@@ -15,7 +15,7 @@ function LandingPage() {
                     <ButtonDonasi />
                 </div>
             </div>
-            <Image src={'/landing-page.png'} width={640} height={640} alt="/vercel.svg" className="min-w-full max-w-sm md:max-w-md md:min-w-fit"/>
+            <Image src={'/landing-page.png'} width={640} height={640} alt="/vercel.svg" className="min-w-full h-full max-w-sm md:max-w-md md:min-w-fit"/>
         </div>
         <Waves direction="up" />
     </div>
