@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar'
 import LandingPage from '@/components/LandingPage'
 import PenyaluranDonasi from '@/components/PenyaluranDonasi'
 import Testimonial from '@/components/Testimonial'
+import SocialMedia from '@/components/SocialMedia'
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <LandingPage />
       <PenyaluranDonasi />
       <Testimonial />
+      <SocialMedia />
     </>
   )
 }
