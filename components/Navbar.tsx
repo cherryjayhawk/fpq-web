@@ -18,7 +18,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="flex justify-between items-center w-full max-w-7xl px-4 py-6 mx-auto bg-sky-100">
+    <div className="flex justify-between items-center w-full max-w-7xl px-4 py-6 mx-auto">
       <h1 className={`${lusitana.className} text-2xl text-cyan-900 z-40`}>
         PELAYAN<span className="text-cyan-400">QURAN</span>
       </h1>
