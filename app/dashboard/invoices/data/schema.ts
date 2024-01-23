@@ -8,6 +8,7 @@ export const invoiceSchema = z.object({
   email: z.string(),
   status: z.string(),
   priority: z.string(),
+  note: z.string(),
   timestamp: z.string().datetime(),
   payment_option: z.string(),
   items: z.object({

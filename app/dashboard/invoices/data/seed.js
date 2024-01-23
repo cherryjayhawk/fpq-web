@@ -2,7 +2,7 @@ import fs from "fs";
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
 import { faker } from "@faker-js/faker";
-import { priorities, statuses, payment_options } from "./data";
+import { priorities, statuses, payment_options } from "./data.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -26,6 +26,7 @@ const tasks = Array.from({ length: 100 }, () => {
     email: faker.internet.email(),
     status: faker.helpers.arrayElement(statuses).value,
     priority: faker.helpers.arrayElement(priorities).value,
+    note: faker.lorem.sentences({ min: 1, max: 3 }),
     timestamp: faker.date.recent(),
     payment_option: faker.helpers.arrayElement(payment_options),
     items: {
