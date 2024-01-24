@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Lusitana } from "next/font/google";
-import ButtonDonasi from "./ButtonDonasi";
+import Donation from "@/components/Donation";
 import { HamburgerMenuIcon, Cross1Icon } from "@radix-ui/react-icons";
 import { useState } from "react";
 import { Separator } from "./ui/separator";
@@ -50,7 +50,7 @@ export default function Navbar() {
         >
           Tentang Kami
         </Link>
-        <ButtonDonasi />
+        <Donation />
       </div>
       <div className="static md:hidden">
         <HamburgerMenuIcon
@@ -106,7 +106,7 @@ export default function Navbar() {
                 orientation="horizontal"
                 className="bg-gray-400 mb-4"
               />
-              <ButtonDonasi />
+              <Donation />
             </div>
           </div>
         )}

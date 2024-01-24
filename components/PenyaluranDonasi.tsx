@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonDonasi from './ButtonDonasi'
+import ButtonDonasi from './Donation'
 
 function PenyaluranDonasi() {
   return (

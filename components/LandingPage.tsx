@@ -1,5 +1,5 @@
 import Image from "next/image"
-import ButtonDonasi from "./ButtonDonasi"
+import ButtonDonasi from "./Donation"
 import Waves from "./Waves"
 
 function LandingPage() {
