@@ -4,6 +4,7 @@ import LandingPage from '@/components/LandingPage'
 import PenyaluranDonasi from '@/components/PenyaluranDonasi'
 import Testimonial from '@/components/Testimonial'
 import SocialMedia from '@/components/SocialMedia'
+import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <LandingPage />
       <PenyaluranDonasi />
       <Testimonial />
+      <Footer />  
       <SocialMedia />
     </>
   )
