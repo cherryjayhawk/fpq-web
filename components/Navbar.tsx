@@ -11,6 +11,7 @@ import { Separator } from "./ui/separator";
 const lusitana = Lusitana({
   subsets: ["latin"],
   weight: ["400"],
+  display: "swap"
 });
 
 export default function Navbar() {
