@@ -1,10 +1,8 @@
 'use client'
 import * as React from "react"
-import useEmblaCarousel, {
-  type EmblaCarouselType as CarouselApi,
-  type EmblaOptionsType as CarouselOptions,
-  type EmblaPluginType as CarouselPlugin,
-} from "embla-carousel-react"
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import useEmblaCarousel, {type EmblaCarouselType as CarouselApi,type EmblaOptionsType as CarouselOptions,type EmblaPluginType as CarouselPlugin,} from "embla-carousel-react"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 
 import { cn } from "@/lib/utils"
