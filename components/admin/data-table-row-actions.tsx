@@ -89,7 +89,7 @@ export function DataTableRowActions<TData>({
   row,
 }: DataTableRowActionsProps<TData>) {
   const invoice = invoiceSchema.parse(row.original)
-  console.log(invoice.note)
+  // console.log(invoice.note)
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -142,13 +142,13 @@ export function DataTableRowActions<TData>({
           </TableHeader>
           <TableBody>
             <TableRow>
-              <TableCell className="font-medium">Al-qur'an Besar</TableCell>
+              <TableCell className="font-medium">Al-qur&lsquo;an Besar</TableCell>
               <TableCell>{ invoice.items.QB_quantity }</TableCell>
               <TableCell>{ currencyFormatter.format(invoice.items.QB_price) }</TableCell>
               <TableCell className="text-right">{ currencyFormatter.format(invoice.items.QB_amount) }</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell className="font-medium">Al-qur'an Kecil</TableCell>
+              <TableCell className="font-medium">Al-qur&lsquo;an Kecil</TableCell>
               <TableCell>{ invoice.items.QK_quantity }</TableCell>
               <TableCell>{ currencyFormatter.format(invoice.items.QK_price) }</TableCell>
               <TableCell className="text-right">{ currencyFormatter.format(invoice.items.QK_amount) }</TableCell>
