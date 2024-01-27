@@ -1,9 +1,8 @@
-import React from 'react'
-import ButtonDonasi from './Donation'
+import Donation from './Donation'
 
 function PenyaluranDonasi() {
   return (
-    <div className="flex flex-col items-center w-full max-w-7xl px-4 py-6 mx-auto -translate-y-96 md:-translate-y-16">
+    <div className="flex flex-col items-center w-full max-w-7xl px-4 py-6 mx-auto">
         <h1 className='text-center text-4xl md:text-4xl font-bold text-cyan-500'>Penyaluran Donasi</h1>
         <p className='hidden md:block text-center my-8'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim eligendi, praesentium, voluptatem explicabo vero quibusdam labore velit amet excepturi voluptas ut illo facere minima, assumenda in sunt atque ea? Eius.</p>
         <div className='my-16 w-full flex flex-wrap justify-around gap-10 md:gap-8'>
@@ -27,7 +26,7 @@ function PenyaluranDonasi() {
             </div>
         </div>
         <div className='flex justify-center items-center w-96'>
-            <ButtonDonasi />
+            <Donation />
         </div>
     </div>
   )

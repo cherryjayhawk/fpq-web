@@ -11,7 +11,6 @@ import { Separator } from "./ui/separator";
 const lusitana = Lusitana({
   subsets: ["latin"],
   weight: ["400"],
-  display: "swap"
 });
 
 export default function Navbar() {
@@ -19,6 +18,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
+    <div className="flex justify-center w-full fixed bg-sky-50 z-50 drop-shadow-xl">
     <div className="flex justify-between items-center w-full max-w-7xl px-4 py-6 mx-auto">
       <h1 className={`${lusitana.className} text-2xl text-cyan-900 z-40`}>
         PELAYAN<span className="text-cyan-400">QURAN</span>
@@ -34,13 +34,13 @@ export default function Navbar() {
           Beranda
         </Link>
         <Link
-          href={"/galeri"}
+          href={"/penyaluran"}
           className={
-            `${path === "/galeri" ? "text-cyan-400" : "text-gray-700"}` +
+            `${path === "/penyaluran" ? "text-cyan-400" : "text-gray-700"}` +
             " px-4 py-2 border-2 border-transparent hover:text-cyan-400 font-bold"
           }
         >
-          Galeri
+          Penyaluran
         </Link>
         <Link
           href={"/tentang-kami"}
@@ -112,6 +112,7 @@ export default function Navbar() {
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 }
