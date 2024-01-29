@@ -3,23 +3,29 @@
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
-// import { Icons } from "@/components/icons"
+import { PulseLoader } from "react-spinners";
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { signIn } from "next-auth/react";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
+  const username = React.useRef('')
+  const password = React.useRef('')
 
   async function onSubmit(event: React.SyntheticEvent) {
     event.preventDefault()
     setIsLoading(true)
 
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 3000)
+    const result = await signIn("credentials", {
+      username: username.current,
+      password: password.current,
+      redirect: true,
+      callbackUrl: '/dashboard'
+    })
   }
 
   return (
@@ -27,17 +33,17 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
       <form onSubmit={onSubmit}>
         <div className="grid gap-2">
           <div className="grid gap-1">
-            <Label className="sr-only" htmlFor="email">
-              Email
+            <Label className="sr-only" htmlFor="username">
+              Username
             </Label>
             <Input
-              id="email"
-              placeholder="name@example.com"
-              type="email"
+              id="username"
+              placeholder="username"
+              type="text"
               autoCapitalize="none"
-              autoComplete="email"
               autoCorrect="off"
               disabled={isLoading}
+              onChange={e => username.current = e.target.value}
             />
             <Label className="sr-only" htmlFor="password">
               Password
@@ -48,12 +54,12 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               type="password"
               autoCorrect="off"
               disabled={isLoading}
+              onChange={e => password.current = e.target.value}
             />
           </div>
-          <Button disabled={isLoading}>
+          <Button type="submit" disabled={isLoading}>
             {isLoading && (
-            //   <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
-            <p>Loading...</p>   
+              <PulseLoader />
             )}
             Sign In
           </Button>
