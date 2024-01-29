@@ -4,13 +4,13 @@ import { z } from "zod"
 // IRL, you will have a schema for your data models.
 export const invoiceSchema = z.object({
   id: z.string(),
-  name: z.string(),
+  fullname: z.string(),
   email: z.string(),
   status: z.string(),
   note: z.string(),
   priority: z.string(),
-  timestamp: z.string().datetime(),
-  payment_option: z.string(),
+  created_at: z.string().datetime(),
+  updated_at: z.string().datetime(),
   items: z.object({
       QB_quantity: z.number(),
       QB_price: z.number(),

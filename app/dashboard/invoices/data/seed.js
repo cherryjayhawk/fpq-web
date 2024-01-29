@@ -2,12 +2,12 @@ import fs from "fs";
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
 import { faker } from "@faker-js/faker";
-import { priorities, statuses, payment_options } from "./data";
+import { priorities, statuses } from "./data.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const tasks = Array.from({ length: 100 }, () => {
+const invoices = Array.from({ length: 100 }, () => {
   const QB_quantity = faker.number.int({ min: 0, max: 100 });
   const QB_price = 120000;
   const QB_amount = QB_quantity * QB_price;
@@ -22,13 +22,13 @@ const tasks = Array.from({ length: 100 }, () => {
 
   return {
     id: faker.string.alphanumeric(16),
-    name: faker.person.fullName(),
+    fullname: faker.person.fullName(),
     email: faker.internet.email(),
     status: faker.helpers.arrayElement(statuses).value,
     note: faker.lorem.sentences({ min: 1, max: 3 }),
     priority: faker.helpers.arrayElement(priorities).value,
-    timestamp: faker.date.recent(),
-    payment_option: faker.helpers.arrayElement(payment_options),
+    created_at: faker.date.recent(),
+    updated_at: faker.date.soon(),
     items: {
       QB_quantity,
       QB_price,
@@ -44,7 +44,7 @@ const tasks = Array.from({ length: 100 }, () => {
 
 fs.writeFileSync(
   path.join(__dirname, "invoices.json"),
-  JSON.stringify(tasks, null, 2)
+  JSON.stringify({"invoices":invoices}, null, 2)
 );
 
 console.log("✅ Tasks data generated.");
