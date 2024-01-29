@@ -2,7 +2,7 @@
 
 import { Facebook, Instagram, LogIn, Mail, MapPin, Phone, PhoneCall, Youtube } from 'lucide-react'
 import { Icon } from '@iconify/react';
-import Link from 'next/link';
+import SignInButton from '@/components/SignInButton';
 
 const year = new Date().getFullYear()
 
@@ -49,10 +49,11 @@ function Footer() {
                     </div>
                 </div>
             </div>
-            <Link href={'/auth/signIn'} className='flex justify-center items-center gap-2 mt-2 mb-6'>
+            <SignInButton />
+            {/* <Link href={'/auth/signIn'} className='flex justify-center items-center gap-2 mt-2 mb-6'>
                 <LogIn size={22} />
                 <p>Login as Asministrator</p>
-            </Link>
+            </Link> */}
             <p className="flex justify-center w-full text-sm mt-6 mb-2">&copy; Pelayan Quran { year }. All Rights Reserved.</p>
         </div>
     </div>
