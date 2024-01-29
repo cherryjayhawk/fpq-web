@@ -11,13 +11,13 @@ import {
 
 export const statuses = [
   {
-    value: "backlog",
-    label: "Backlog",
+    value: "pending",
+    label: "Pending",
     icon: QuestionMarkCircledIcon,
   },
   {
-    value: "todo",
-    label: "Todo",
+    value: "paid",
+    label: "Paid",
     icon: CircleIcon,
   },
   {
