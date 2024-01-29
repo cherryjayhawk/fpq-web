@@ -1,9 +1,6 @@
-import { promises as fs } from "fs"
-import path from "path"
 import { Metadata } from "next"
-import Image from "next/image"
-import { z } from "zod"
-
+import { getServerSession } from "next-auth/next"
+import { authOptions } from "@/app/api/auth/[...nextauth]/route"
 import { columns } from "@/components/admin/columns"
 import { DataTable } from "@/components/admin/data-table"
 import { invoiceSchema } from "./data/schema"
@@ -13,19 +10,17 @@ export const metadata: Metadata = {
   description: "A task and issue tracker build using Tanstack Table.",
 }
 
-async function getInvoices() {
-  const data = await fs.readFile(
-    path.join(process.cwd(), "app/dashboard/invoices/data/invoices.json")
-  )
-
-  const invoices = JSON.parse(data.toString())
-
-  return z.array(invoiceSchema).parse(invoices)
-}
-
 export default async function Invoices() {
-  const invoices = await getInvoices()
-  // console.log(invoices)
+  // const session = await getServerSession(authOptions)
+  const res = await fetch(`${process.env.WEBSERVICE_URL}invoices`, {
+      method: "GET",
+      headers: {
+          "Accept": "application/json",
+          // "Authorization": `Bearer ${session?.user?.token}`
+      },
+      cache: 'no-store',
+  })
+  const data = await res.json()
 
   return (
     <>
@@ -35,7 +30,7 @@ export default async function Invoices() {
             <h2 className="text-3xl font-bold tracking-tight">Invoices</h2>
           </div>
         </div>
-        <DataTable data={invoices} columns={columns} />
+        <DataTable data={data} columns={columns} />
       </div>
     </>
   )
