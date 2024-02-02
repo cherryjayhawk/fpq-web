@@ -7,7 +7,7 @@ import {
   SortingState,
   VisibilityState,
   flexRender,
-  getCoreRowModel,
+  getCoreRowModel, 
   getFacetedRowModel,
   getFacetedUniqueValues,
   getFilteredRowModel,
@@ -27,15 +27,21 @@ import {
 
 import { DataTablePagination } from "./data-table-pagination"
 import { DataTableToolbar } from "./data-table-toolbar"
+import { currencyFormatter } from "../functions/currencyFormat"
+import { dateFormatter } from "../functions/dateFormat"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
+  usage?: string
+  className?: string
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  usage,
+  className
 }: DataTableProps<TData, TValue>) {
   const [rowSelection, setRowSelection] = React.useState({})
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
@@ -68,8 +74,8 @@ export function DataTable<TData, TValue>({
   // console.log(table.getRowModel())
 
   return (
-    <div className="space-y-4">
-      <DataTableToolbar table={table} />
+    <div className={`${className} space-y-4`}>
+      <DataTableToolbar table={table} usage={usage} />
       <div className="rounded-md border">
         <Table className="bg-white">
           <TableHeader>
@@ -77,7 +83,7 @@ export function DataTable<TData, TValue>({
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id} colSpan={header.colSpan}>
+                    <TableHead key={header.id} colSpan={header.colSpan} className="font-bold uppercase">
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -99,10 +105,17 @@ export function DataTable<TData, TValue>({
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
+                      {
+                        usage === 'penyaluran' ? 
+                          (cell.column.id === 'total' ? 
+                            <span>{currencyFormatter.format(cell.renderValue() as number)}</span> :
+                            (cell.column.id === 'updated_at' ? 
+                              <span>{dateFormatter(cell.renderValue() as Date)}</span> :
+                              <span>{cell.renderValue() as React.ReactNode}</span>
+                            )
+                          ) :
+                          flexRender(cell.column.columnDef.cell, cell.getContext())
+                      }
                     </TableCell>
                   ))}
                 </TableRow>
